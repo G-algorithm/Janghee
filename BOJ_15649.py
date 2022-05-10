@@ -1,13 +1,11 @@
-#
-#      1      2      3
-
-#   1 2 3   1 2 3   1 2 3
-
-# 123 123 123 123 123 123 ....
 import sys
 input = sys.stdin.readline
 
 n,m = map(int,input().rstrip().split())
+
+# 만약 n=4, m=2라면 밑과 같은 형태로 진행
+# rs : [1] -> [1,2] -> [1] -> [1,3] -> [1] -> [1,4]
+
 rs=[] #수열저장
 
 
@@ -25,5 +23,9 @@ def recur():
 
 recur()
 
-# 만약 n=4, m=2라면 밑과 같은 형태로 진행
-# rs : [1] -> [1,2] -> [1] -> [1,3] -> [1] -> [1,4]
+
+## 다른 방법
+from itertools import permutations
+pp = permutations([i for i in range(1,n+1)], m)
+print(pp)
+
